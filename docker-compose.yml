@@ -1,0 +1,21 @@
+services:
+# Server Services
+  server:
+    build: ./server
+    image: server
+    # container_name: server
+    environment:
+      - SERVER_NAME=server
+    networks:
+        - private_network
+
+# Build client
+  client:
+    build: ./client
+    networks:
+        - private_network
+
+networks:
+  private_network:
+    driver: bridge
+
